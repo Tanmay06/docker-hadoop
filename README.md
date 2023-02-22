@@ -8,15 +8,12 @@ Start the container using:
 ```
 docker-compose up -d
 ```
-The container cli can be accessed using:
-```
-docker-compose exec hadoop bash  
-```
-
 The `docker-compose.yml` defines an external network `xapp` where the Hadoop cluster is placed.
 
 ## Usage
 Attach and interact with the container by running `docker-compose exec hadoop bash` or `docker run -it <container id>`.
+
+The `/home` directory of the container is binded to the parent directory of this repo. It can used as a shared folder between the host and container to access and run `.jars`. Check `volumes` in `docker-compose.yml` to update the binded folders if required.
 
 ## Web interfaces
 * Namenode <http://localhost:9870>  
