@@ -5,15 +5,16 @@ RUN apt-get -y dist-upgrade
 RUN apt-get -y install wget ssh openjdk-8-jdk-headless
 
 # Download and unpack Hadoop
-RUN wget http://apache.mirrors.spacedump.net/hadoop/common/hadoop-3.0.3/hadoop-3.0.3.tar.gz --progress=bar:force:noscroll \
-    && tar xf hadoop-3.0.3.tar.gz \
-    && mv hadoop-3.0.3 /usr/local/hadoop \
-    && rm hadoop-3.0.3.tar.gz
+# RUN wget http://apache.mirrors.spacedump.net/hadoop/common/hadoop-3.0.3/hadoop-3.0.3.tar.gz --progress=bar:force:noscroll \
+RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz --progress=bar:force:noscroll \
+    && tar xf hadoop-3.3.4.tar.gz \
+    && mv hadoop-3.3.4 /usr/local/hadoop \
+    && rm hadoop-3.3.4.tar.gz
 
 # Only used for manual testing
 RUN apt-get -y install vim
 
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64
 
 # Generate keys to allow for node communication via SSH. Pseudo-distribute mode simulates this behavior locally.
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P ""
