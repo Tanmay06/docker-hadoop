@@ -1,10 +1,16 @@
 # Hadoop pseudo distributed mode dockerized
-Flexible Hadoop Docker image to aid local development.
+Flexible Hadoop Docker image to aid local development. This repo extends the original repo to run hadoop on apple silicon with latest versionset.
 
 ## Quick start
+[Download](https://www.docker.com) docker if you haven't installed it yet.
+
 Start the container using:
 ```
 docker-compose up -d
+```
+The container cli can be accessed using:
+```
+docker-compose exec hadoop bash  
 ```
 
 The `docker-compose.yml` defines an external network `xapp` where the Hadoop cluster is placed.
